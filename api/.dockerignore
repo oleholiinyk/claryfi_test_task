@@ -1,0 +1,8 @@
+var/cache
+var/log
+vendor
+.git
+.gitignore
+Dockerfile
+.dockerignore
+composer.lock
