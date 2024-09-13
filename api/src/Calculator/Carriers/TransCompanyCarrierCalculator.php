@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Service\Companies;
+namespace App\Calculator\Carriers;
 
-use App\Interfaces\Companies\TransCompanyCarrierInterface;
-use App\Service\CarrierService;
-
-class TransCompanyCarrierService extends CarrierService implements TransCompanyCarrierInterface
+class TransCompanyCarrierCalculator extends BaseCarrierCalculatorCalculator
 {
   private const int PRICE_BELOW = 20;
   private const int PRICE_ABOVE = 100;
@@ -15,8 +12,8 @@ class TransCompanyCarrierService extends CarrierService implements TransCompanyC
   {
     if ($weight <= self::WEIGHT_THRESHOLD) {
       return self::PRICE_BELOW;
-    } else {
-      return self::PRICE_ABOVE;
     }
+
+    return self::PRICE_ABOVE;
   }
 }

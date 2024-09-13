@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Calculators;
+namespace App\Service;
 
+use App\Contract\BaseCarrierCalculatorInterface;
 use App\Entity\Carrier;
-use App\Service\CarrierService;
 
-class DeliveryCostCalculator
+class DeliveryCostService
 {
-  private CarrierService $carrierService;
+  private BaseCarrierCalculatorInterface $carrierService;
   private Carrier $carrier;
 
-  public function __construct(CarrierService $carrierService, Carrier $carrier)
+  public function __construct(BaseCarrierCalculatorInterface $carrierService, Carrier $carrier)
   {
     $this->carrierService = $carrierService;
     $this->carrier = $carrier;

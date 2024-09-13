@@ -4,8 +4,8 @@ namespace App\Controller\Api;
 
 use App\Factory\CarrierServiceFactory;
 use App\Repository\CarrierRepository;
-use App\Requests\Carriers\CalculateDeliveryCostRequest;
-use App\Service\Calculators\DeliveryCostCalculator;
+use App\Request\Carriers\CalculateDeliveryCostRequest;
+use App\Service\DeliveryCostService;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -43,7 +43,7 @@ class CarrierController extends AbstractController
 
     $carrierService = CarrierServiceFactory::createFromSlug($carrier->getSlug());
 
-    $calculator = new DeliveryCostCalculator($carrierService, $carrier);
+    $calculator = new DeliveryCostService($carrierService, $carrier);
 
     return new JsonResponse($calculator->calculate($request->weight));
   }

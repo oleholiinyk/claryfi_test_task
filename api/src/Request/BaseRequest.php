@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Requests;
+namespace App\Request;
 
 use Symfony\Bundle\MakerBundle\Str;
 use Symfony\Component\HttpFoundation\JsonResponse;

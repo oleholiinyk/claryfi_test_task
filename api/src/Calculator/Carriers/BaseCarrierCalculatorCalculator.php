@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Service;
+namespace App\Calculator\Carriers;
 
-use App\Interfaces\CarrierInterface;
+use App\Contract\BaseCarrierCalculatorInterface;
 
-abstract class CarrierService implements CarrierInterface
+abstract class BaseCarrierCalculatorCalculator implements BaseCarrierCalculatorInterface
 {
   /**
    * method for calculating shipping costs.

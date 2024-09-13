@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Interfaces;
+namespace App\Contract;
 
-interface CarrierInterface
+interface BaseCarrierCalculatorInterface
 {
   /**
    * @param float $weight
