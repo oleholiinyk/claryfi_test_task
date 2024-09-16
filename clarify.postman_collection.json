@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "176a3854-786a-4ca4-a6f9-91b5909e450d",
+		"name": "clarify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25043319"
+	},
+	"item": [
+		{
+			"name": "carriers list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{api}}/carriers",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"carriers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"carrier_slug\": \"pack_group\",\n    \"weight\": 15.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api}}/carriers/calculate/delivery-cost",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"carriers",
+						"calculate",
+						"delivery-cost"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
