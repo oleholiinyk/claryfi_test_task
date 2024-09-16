@@ -2,7 +2,7 @@
 
 namespace App\Calculator\Carriers;
 
-class PackGroupCarrierCalculator extends BaseCarrierCalculatorCalculator
+class PackGroupCarrierCalculator extends BaseCarrierCalculator
 {
   private const int PRICE_PER_KG = 1;
 

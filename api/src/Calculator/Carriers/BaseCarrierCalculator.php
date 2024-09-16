@@ -4,7 +4,7 @@ namespace App\Calculator\Carriers;
 
 use App\Contract\BaseCarrierCalculatorInterface;
 
-abstract class BaseCarrierCalculatorCalculator implements BaseCarrierCalculatorInterface
+abstract class BaseCarrierCalculator implements BaseCarrierCalculatorInterface
 {
   /**
    * method for calculating shipping costs.

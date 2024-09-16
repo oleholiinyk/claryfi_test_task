@@ -2,7 +2,7 @@
 
 namespace App\Calculator\Carriers;
 
-class TransCompanyCarrierCalculator extends BaseCarrierCalculatorCalculator
+class TransCompanyCarrierCalculator extends BaseCarrierCalculator
 {
   private const int PRICE_BELOW = 20;
   private const int PRICE_ABOVE = 100;

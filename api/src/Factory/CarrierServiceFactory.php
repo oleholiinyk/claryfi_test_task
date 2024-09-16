@@ -2,13 +2,13 @@
 
 namespace App\Factory;
 
-use App\Calculator\Carriers\BaseCarrierCalculatorCalculator;
+use App\Calculator\Carriers\BaseCarrierCalculator;
 use Exception;
 use Symfony\Bundle\MakerBundle\Str;
 
 class CarrierServiceFactory
 {
-  public static function createFromSlug(string $slug): BaseCarrierCalculatorCalculator
+  public static function createFromSlug(string $slug): BaseCarrierCalculator
   {
     $class = self::getClassBySlug($slug);
 
