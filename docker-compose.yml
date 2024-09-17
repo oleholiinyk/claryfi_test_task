@@ -1,0 +1,70 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: claryfi-api-fpm
+    volumes:
+      - ./api:/var/www/claryfi/api
+    ports:
+      - "9000:9000"
+    networks:
+      - claryfi-api-network
+    restart: always
+    depends_on:
+      - db
+
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: claryfi-app
+    ports:
+      - 3200:80
+    volumes:
+      - ./app:/var/www/claryfi/app
+    networks:
+      - claryfi-app-network
+    restart: always
+#
+  db:
+    image: mysql:8.0
+    container_name: claryfi-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+      - ./docker/mysql/data:/var/lib/mysql
+    networks:
+      - claryfi-api-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: claryfi-nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8080:8080"
+      - "8000:8999"
+    volumes:
+#      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/conf.d/local:/etc/nginx/conf.d
+      - ./api:/var/www/claryfi/api
+    depends_on:
+      - app
+      - api
+    networks:
+      - claryfi-api-network
+      - claryfi-app-network
+
+networks:
+  claryfi-api-network:
+    driver: bridge
+  claryfi-app-network:
+    driver: bridge
