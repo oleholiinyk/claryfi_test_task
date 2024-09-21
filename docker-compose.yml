@@ -41,7 +41,6 @@ services:
     volumes:
       - ./docker/mysql:/docker-entrypoint-initdb.d
       - ./docker/mysql/data:/var/lib/mysql
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
       - claryfi-api-network
 
